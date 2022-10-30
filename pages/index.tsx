@@ -4,7 +4,7 @@ export default function Home() {
     const currentDate = new Date()
 
     return (
-        <div className="h-screen flex justify-center items-center">
+        <div className="h-screen flex justify-center items-center bg-white max-sm:bg-[#092540]">
             <Head>
                 <title>DevPill.dk</title>
                 <meta
@@ -14,10 +14,10 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-white py-6 sm:py-12">
-                <div className="mx-auto max-w-4xl rounded-3xl bg-[#092540] p-20 text-center">
+            <div className="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12 m-1">
+                <div className="mx-auto max-w-4xl rounded-3xl sm:bg-[#092540] p-1 text-center sm:p-20">
                     <h2 className="text-5xl font-bold leading-tight text-white">
-                        Grow rapidly with our unlimited design and development
+                        Grow rapidly with the use of our design and development
                         skills
                     </h2>
                     <p className="mt-5 text-xl leading-8 text-white">
