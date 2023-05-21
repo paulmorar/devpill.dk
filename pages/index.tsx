@@ -29,7 +29,7 @@ export default function Home() {
                     <div className="mt-6 flex items-center justify-center gap-4">
                         <a
                             className="flex items-center justify-center gap-2 rounded-full bg-violet-500 px-5 py-3 text-lg font-medium text-white"
-                            href="mailto:paulcornelmorar@gmail.com?subject=[devpill.dk]Let's talk"
+                            href="mailto:paul@devpill.dk?subject=[devpill.dk]Let's talk"
                         >
                             <span>Drop us a mail</span>
                             <span>
