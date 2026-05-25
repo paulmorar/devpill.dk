@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ArrowUpRight, CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Mail, MapPin } from "lucide-react";
 import PageHeader from "@/components/ui/page-header";
 
 export default function ContactPage() {
@@ -53,10 +53,15 @@ export default function ContactPage() {
                     </div>
                     <Field label="Company" name="company" />
                     <div>
-                      <label className="block text-xs uppercase tracking-widest text-slate-400">
+                      <label
+                        htmlFor="project"
+                        className="block text-xs uppercase tracking-widest text-slate-400"
+                      >
                         Project
                       </label>
                       <textarea
+                        id="project"
+                        name="project"
                         rows={5}
                         required
                         className="mt-2 w-full rounded-xl border border-white/10 bg-ink-950/60 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-brand-500 focus:ring-0"
@@ -76,12 +81,17 @@ export default function ContactPage() {
             </div>
             <aside className="lg:col-span-2 space-y-4">
               {[
-                { icon: Mail, label: "Email", value: "hello@devpill.dk" },
-                { icon: Phone, label: "Phone", value: "+45 28 00 00 00" },
+                {
+                  icon: Mail,
+                  label: "Email",
+                  value: "paul@devpill.dk",
+                  href: "mailto:paul@devpill.dk",
+                },
                 {
                   icon: MapPin,
                   label: "Studio",
                   value: "Vesterbrogade 12, Copenhagen",
+                  href: undefined,
                 },
               ].map((c) => (
                 <div
@@ -95,7 +105,16 @@ export default function ContactPage() {
                     <p className="text-xs uppercase tracking-widest text-slate-500">
                       {c.label}
                     </p>
-                    <p className="mt-1 text-white">{c.value}</p>
+                    {c.href ? (
+                      <a
+                        href={c.href}
+                        className="mt-1 block text-white hover:text-brand-200 transition-colors"
+                      >
+                        {c.value}
+                      </a>
+                    ) : (
+                      <p className="mt-1 text-white">{c.value}</p>
+                    )}
                   </div>
                 </div>
               ))}

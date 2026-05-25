@@ -1,9 +1,28 @@
+import type { Metadata } from "next";
 import PageHeader from "@/components/ui/page-header";
 import Principles from "@/components/principles";
 import FAQ from "@/components/faq";
 import CTA from "@/components/cta";
 
-export const metadata = { title: "About — Devpill" };
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Devpill is a newly registered, founder-led IT consultancy out of Copenhagen. The company is new — the engineering behind it isn't.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About — Devpill",
+    description:
+      "A small, founder-led IT consultancy out of Copenhagen — just getting started.",
+    url: "/about",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About — Devpill",
+    description:
+      "A small, founder-led IT consultancy out of Copenhagen — just getting started.",
+  },
+};
 
 export default function AboutPage() {
   return (

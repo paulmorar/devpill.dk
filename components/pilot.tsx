@@ -53,10 +53,10 @@ export default function Pilot({
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <a
-                href="mailto:hello@devpill.dk"
+                href="mailto:paul@devpill.dk"
                 className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/5 transition-colors"
               >
-                hello@devpill.dk
+                paul@devpill.dk
               </a>
             </div>
           </div>

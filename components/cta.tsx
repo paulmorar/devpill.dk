@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 
 export default function CTA({
   sectionNumber = "07",
@@ -28,19 +27,19 @@ export default function CTA({
           </h2>
           <div className="relative mt-10 flex flex-wrap items-center gap-5">
             <a
-              href="mailto:hello@devpill.dk"
-              className="group inline-flex items-center gap-2 text-xl sm:text-2xl text-white hover:text-brand-200 transition-colors"
+              href="mailto:paul@devpill.dk"
+              className="group inline-flex items-center gap-2 rounded-full bg-white text-ink-900 px-6 py-3 text-sm font-medium hover:bg-brand-200 transition-colors"
             >
-              hello@devpill.dk
-              <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-1.5 rounded-full bg-white text-ink-900 px-5 py-2.5 text-sm font-medium hover:bg-brand-200 transition-colors"
-            >
-              Book a discovery call
+              <Mail className="h-4 w-4" />
+              Email us
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
+            </a>
+            <a
+              href="mailto:paul@devpill.dk"
+              className="text-base sm:text-lg text-slate-300 hover:text-white transition-colors"
+            >
+              paul@devpill.dk
+            </a>
           </div>
         </div>
       </div>
