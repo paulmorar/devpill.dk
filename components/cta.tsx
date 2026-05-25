@@ -1,40 +1,49 @@
-export default function Cta() {
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+
+export default function CTA({
+  sectionNumber = "07",
+}: {
+  sectionNumber?: string;
+}) {
   return (
-    <section>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="relative px-8 py-12 md:py-20 rounded-[3rem] overflow-hidden">
-          {/* Radial gradient */}
-          <div className="absolute flex items-center justify-center top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-            <div className="absolute inset-0 translate-z-0 bg-purple-500 rounded-full blur-[120px] opacity-70" />
-            <div className="absolute w-1/4 h-1/4 translate-z-0 bg-purple-400 rounded-full blur-[40px]" />
-          </div>
-          {/* Blurred shape */}
-          <div className="absolute bottom-0 translate-y-1/2 left-0 blur-2xl opacity-50 pointer-events-none -z-10" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="434" height="427">
-              <defs>
-                <linearGradient id="bs5-a" x1="19.609%" x2="50%" y1="14.544%" y2="100%">
-                  <stop offset="0%" stopColor="#A855F7" />
-                  <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <path fill="url(#bs5-a)" fillRule="evenodd" d="m0 0 461 369-284 58z" transform="matrix(1 0 0 -1 0 427)" />
-            </svg>
-          </div>
-          {/* Content */}
-          <div className="max-w-3xl mx-auto text-center">
-            <div>
-              <div className="inline-flex font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-200 pb-3">The security first platform</div>
+    <section className="relative py-28 sm:py-40 border-t border-white/10">
+      <div className="container-wide">
+        <div className="grid gap-10 lg:grid-cols-12 mb-12">
+          <div className="lg:col-span-3">
+            <div className="text-xs uppercase tracking-[0.2em] text-slate-400">
+              {sectionNumber && <span>{sectionNumber} /</span>} Get in touch
             </div>
-            <h2 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Take control of your business</h2>
-            <p className="text-lg text-slate-400 mb-8">All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
-            <div>
-              <a className="btn text-slate-900 bg-gradient-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group" href="#0">
-                Get Started <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
-              </a>
-            </div>
+          </div>
+        </div>
+        <div className="relative rounded-3xl border border-white/10 bg-gradient-to-br from-ink-900 via-ink-900 to-ink-800 p-10 sm:p-16 overflow-hidden">
+          <div className="absolute -top-24 -right-24 h-[420px] w-[420px] rounded-full bg-brand-500/20 blur-[120px]" />
+          <div className="absolute -bottom-24 -left-24 h-[360px] w-[360px] rounded-full bg-violet-500/20 blur-[120px]" />
+          <h2 className="relative font-display text-5xl sm:text-7xl lg:text-8xl tracking-tighter leading-[0.95]">
+            Let&rsquo;s build something
+            <br />
+            <span className="text-gradient-brand animate-gradient-x">
+              worth shipping.
+            </span>
+          </h2>
+          <div className="relative mt-10 flex flex-wrap items-center gap-5">
+            <a
+              href="mailto:hello@devpill.dk"
+              className="group inline-flex items-center gap-2 text-xl sm:text-2xl text-white hover:text-brand-200 transition-colors"
+            >
+              hello@devpill.dk
+              <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </a>
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-1.5 rounded-full bg-white text-ink-900 px-5 py-2.5 text-sm font-medium hover:bg-brand-200 transition-colors"
+            >
+              Book a discovery call
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,62 +1,62 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        inter: ['var(--font-inter)', 'sans-serif'],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-space)", "system-ui", "sans-serif"],
       },
-      fontSize: {
-        xs: ['0.75rem', { lineHeight: '1.5' }],
-        sm: ['0.875rem', { lineHeight: '1.5715' }],
-        base: ['1rem', { lineHeight: '1.5', letterSpacing: '-0.017em' }],
-        lg: ['1.125rem', { lineHeight: '1.5', letterSpacing: '-0.017em' }],
-        xl: ['1.25rem', { lineHeight: '1.5', letterSpacing: '-0.017em' }],
-        '2xl': ['1.5rem', { lineHeight: '1.415', letterSpacing: '-0.017em' }],
-        '3xl': ['1.875rem', { lineHeight: '1.333', letterSpacing: '-0.017em' }],
-        '4xl': ['2.25rem', { lineHeight: '1.277', letterSpacing: '-0.017em' }],
-        '5xl': ['2.75rem', { lineHeight: '1.1', letterSpacing: '-0.017em' }],
-        '6xl': ['3.5rem', { lineHeight: '1', letterSpacing: '-0.017em' }],
-        '7xl': ['4.5rem', { lineHeight: '1', letterSpacing: '-0.017em' }],
-      },
-      letterSpacing: {
-        tighter: '-0.02em',
-        tight: '-0.01em',
-        normal: '0',
-        wide: '0.01em',
-        wider: '0.02em',
-        widest: '0.4em',
+      colors: {
+        brand: {
+          50: "#eefaff",
+          100: "#d9f2ff",
+          200: "#bce8ff",
+          300: "#8edaff",
+          400: "#59c1ff",
+          500: "#33a3ff",
+          600: "#1c83f5",
+          700: "#176ae0",
+          800: "#1955b3",
+          900: "#1a488d",
+        },
+        ink: {
+          950: "#05060a",
+          900: "#0a0c14",
+          800: "#0f111c",
+          700: "#161a28",
+          600: "#1f2436",
+        },
       },
       animation: {
-        'endless': 'endless 20s linear infinite',
-        'shine': 'shine 5s linear 500ms infinite',
-        'float': 'float 2s ease-in-out infinite',
+        "gradient-x": "gradient-x 8s ease infinite",
+        marquee: "marquee 40s linear infinite",
+        aurora: "aurora 18s ease infinite",
+        float: "float 6s ease-in-out infinite",
       },
       keyframes: {
-        'endless': {
-          '0%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(-245px)' }
+        "gradient-x": {
+          "0%, 100%": { "background-position": "0% 50%" },
+          "50%": { "background-position": "100% 50%" },
         },
-        'shine': {
-          '0%': { top: '0', transform: 'translateY(-100%) scaleY(10)', opacity: '0' },
-          '2%': { opacity: '.5' },
-          '40%': { top: '100%', transform: 'translateY(0) scaleY(200)', opacity: '0' },
-          '100%': { top: '100%', transform: 'translateY(0) scaleY(1)', opacity: '0' },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
-        'float': {
-          '0%': { transform: 'translateY(3%)' },
-          '50%': { transform: 'translateY(-3%)' },
-          '100%': { transform: 'translateY(3%)' }
+        aurora: {
+          "0%, 100%": { transform: "translate(0,0) scale(1)" },
+          "33%": { transform: "translate(40px,-30px) scale(1.1)" },
+          "66%": { transform: "translate(-30px,20px) scale(0.95)" },
         },
-      }
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+      },
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };

@@ -1,57 +1,119 @@
-import Image from 'next/image'
-import Particles from './particles'
-import Illustration from '@/public/images/glow-bottom.svg'
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
+
+const Line = ({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) => (
+  <span className="block overflow-hidden">
+    <motion.span
+      initial={{ y: "110%" }}
+      animate={{ y: 0 }}
+      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay }}
+      className="block"
+    >
+      {children}
+    </motion.span>
+  </span>
+);
 
 export default function Hero() {
   return (
-    <section>
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="relative min-h-[100svh] pt-32 sm:pt-40 pb-20">
+      {/* ambient blobs */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-20 -left-20 h-[480px] w-[480px] rounded-full bg-brand-500/20 blur-[120px] animate-aurora" />
+        <div
+          className="absolute top-1/3 right-0 h-[420px] w-[420px] rounded-full bg-violet-500/20 blur-[120px] animate-aurora"
+          style={{ animationDelay: "-6s" }}
+        />
+      </div>
+      <div className="absolute inset-0 -z-10 grid-bg opacity-60" />
 
-        {/* Particles animation */}
-        <Particles className="absolute inset-0 -z-10" />
+      <div className="container-wide">
+        {/* Top meta row */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-slate-400"
+        >
+          <span className="flex items-center gap-2">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            Open for clients · 2026
+          </span>
+          <span className="hidden sm:inline">Copenhagen · Remote EU</span>
+        </motion.div>
 
-        {/* Illustration */}
-        <div className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden" aria-hidden="true">
-          <div className="absolute left-1/2 -translate-x-1/2 bottom-0 -z-10">
-            <Image src={Illustration} className="max-w-none" width={2146} priority alt="Hero Illustration" />
-          </div>
-        </div>
+        {/* Split layout: headline left, body+bullets+link right */}
+        <div className="mt-12 sm:mt-16 grid gap-10 lg:gap-16 lg:grid-cols-12 items-start">
+          <h1 className="lg:col-span-7 font-display font-medium tracking-tighter leading-[0.95] text-[clamp(3rem,8.5vw,9rem)]">
+            <Line>The IT consultancy</Line>
+            <Line delay={0.1}>
+              that delivers more{" "}
+              <span className="italic font-light text-slate-300">for</span>
+            </Line>
+            <Line delay={0.2}>
+              <span className="text-gradient-brand animate-gradient-x">
+                less.
+              </span>
+            </Line>
+          </h1>
 
-        <div className="pt-32 pb-16 md:pt-52 md:pb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="lg:col-span-5 lg:pt-6 space-y-6 text-slate-300"
+          >
+            <p className="text-lg leading-relaxed text-balance">
+              IT budgets are under pressure. You need to deliver more for the
+              same budget — or less. We rethink the engagement model so a small,
+              senior team can ship the work of a much bigger one.
+            </p>
 
-          {/* Hero content */}
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="mb-6" data-aos="fade-down">
-              <div className="inline-flex relative before:absolute before:inset-0 before:bg-purple-500 before:blur-md">
-                <a className="btn-sm py-0.5 text-slate-300 hover:text-white transition duration-150 ease-in-out group [background:linear-gradient(theme(colors.purple.500),_theme(colors.purple.500))_padding-box,_linear-gradient(theme(colors.purple.500),_theme(colors.purple.200)_75%,_theme(colors.transparent)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/50 before:rounded-full before:pointer-events-none shadow" href="#0">
-                  <span className="relative inline-flex items-center">
-                    API Studio is now in beta <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
-                  </span>
-                </a>
-              </div>
+            <div>
+              <p className="text-white">A Devpill engagement gives you:</p>
+              <ul className="mt-3 space-y-2 text-slate-300">
+                {[
+                  "Senior engineers, no juniors parachuted in",
+                  "Fixed-scope pilots before any long commitment",
+                  "Code and infrastructure you own from day one",
+                  "Honest trade-offs in writing, not slideware",
+                ].map((b) => (
+                  <li key={b} className="flex gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand-400 shrink-0" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h1 className="h1 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4" data-aos="fade-down">The API Security Framework</h1>
-            <p className="text-lg text-slate-300 mb-8" data-aos="fade-down" data-aos-delay="200">Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.</p>
-            <div className="max-w-xs mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-down" data-aos-delay="400">
-              <div>
-                <a className="btn text-slate-900 bg-gradient-to-r from-white/80 via-white to-white/80 hover:bg-white w-full transition duration-150 ease-in-out group" href="#0">
-                  Get Started <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
-                </a>
-              </div>
-              <div>
-                <a className="btn text-slate-200 hover:text-white bg-slate-900 bg-opacity-25 hover:bg-opacity-30 w-full transition duration-150 ease-in-out" href="#0">
-                  <svg className="shrink-0 fill-slate-300 mr-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                    <path d="m1.999 0 1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 0l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 10l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM6.292 7.586l2.646-2.647L11.06 7.06 8.413 9.707zM0 13.878l5.586-5.586 2.122 2.121L2.12 16z" />
-                  </svg>
-                  <span>Read the docs</span>
-                </a>
-              </div>
+
+            <div className="flex flex-wrap items-center gap-5 pt-2">
+              <Link
+                href="/services"
+                className="group inline-flex items-center gap-2 text-accent text-[15px] font-medium text-brand-300 hover:text-brand-200 transition-colors"
+              >
+                Read more about how we work
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-1.5 rounded-full bg-white text-ink-900 px-5 py-2.5 text-sm font-medium hover:bg-brand-200 transition-colors"
+              >
+                Start a project
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
             </div>
-
-          </div>
-
+          </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
