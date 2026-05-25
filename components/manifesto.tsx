@@ -10,7 +10,6 @@ export default function Manifesto({
 }: {
   sectionNumber?: string;
 }) {
-  const words = text.split(" ");
   return (
     <section className="relative py-28 sm:py-40 border-t border-white/10">
       <div className="container-wide">
@@ -20,20 +19,15 @@ export default function Manifesto({
               {sectionNumber && <span>{sectionNumber} /</span>} Manifesto
             </div>
           </div>
-          <p className="lg:col-span-9 font-display text-3xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
-            {words.map((w, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0.1 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-20% 0px" }}
-                transition={{ duration: 0.5, delay: i * 0.02 }}
-                className="inline-block mr-[0.2em]"
-              >
-                {w}
-              </motion.span>
-            ))}
-          </p>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10% 0px" }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-9 font-display text-3xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight"
+          >
+            {text}
+          </motion.p>
         </div>
       </div>
     </section>

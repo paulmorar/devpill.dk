@@ -17,7 +17,16 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const next = window.scrollY > 12;
+        setScrolled((prev) => (prev !== next ? next : prev));
+        ticking = false;
+      });
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -32,7 +41,7 @@ export default function Header() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className={`mt-4 flex items-start justify-between rounded-2xl border px-5 py-4 transition-all duration-300 ${
             scrolled
-              ? "border-white/10 bg-ink-900/70 backdrop-blur-xl"
+              ? "border-white/10 bg-ink-900/95 md:bg-ink-900/70 md:backdrop-blur-xl"
               : "border-transparent bg-transparent"
           }`}
         >
@@ -74,7 +83,7 @@ export default function Header() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden mx-4 sm:mx-8 mt-2 rounded-2xl border border-white/10 bg-ink-900/90 backdrop-blur-xl p-4"
+            className="md:hidden mx-4 sm:mx-8 mt-2 rounded-2xl border border-white/10 bg-ink-900 p-4"
           >
             <div className="flex flex-col">
               {nav.map((item) => (

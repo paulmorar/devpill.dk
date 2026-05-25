@@ -32,9 +32,7 @@ export default function AboutPage() {
         title={
           <>
             A small studio,{" "}
-            <span className="text-gradient-brand animate-gradient-x">
-              just getting started.
-            </span>
+            <span className="text-gradient-brand">just getting started.</span>
           </>
         }
         description="Devpill is a newly registered consultancy out of Copenhagen. The company is new — the engineering behind it isn't. We started Devpill to do the kind of senior, hands-on work that's hard to find inside bigger consultancies."
@@ -67,7 +65,7 @@ export default function AboutPage() {
               ].map((s) => (
                 <div
                   key={s.k}
-                  className="rounded-2xl border border-white/10 bg-ink-900/40 backdrop-blur p-6"
+                  className="rounded-2xl border border-white/10 bg-ink-900/60 p-6"
                 >
                   <p className="text-xs uppercase tracking-widest text-slate-500">
                     {s.k}

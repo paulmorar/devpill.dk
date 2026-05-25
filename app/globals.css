@@ -11,26 +11,40 @@
   }
   body {
     @apply bg-ink-950 text-slate-100 antialiased font-sans;
-    background-image:
-      radial-gradient(
-        1200px 600px at 80% -10%,
-        rgba(51, 163, 255, 0.18),
-        transparent 60%
-      ),
-      radial-gradient(
-        900px 500px at -10% 10%,
-        rgba(124, 58, 237, 0.18),
-        transparent 55%
-      ),
-      radial-gradient(
-        800px 600px at 50% 120%,
-        rgba(16, 185, 129, 0.1),
-        transparent 60%
-      );
-    background-attachment: fixed;
+    background-image: radial-gradient(
+      900px 500px at 80% -10%,
+      rgba(51, 163, 255, 0.14),
+      transparent 60%
+    );
+  }
+  /* Larger ambient backdrop only on capable viewports */
+  @media (min-width: 1024px) {
+    body {
+      background-image:
+        radial-gradient(
+          1100px 600px at 80% -10%,
+          rgba(51, 163, 255, 0.16),
+          transparent 60%
+        ),
+        radial-gradient(
+          800px 500px at -10% 10%,
+          rgba(124, 58, 237, 0.14),
+          transparent 55%
+        );
+    }
   }
   ::selection {
     @apply bg-brand-500/40 text-white;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 

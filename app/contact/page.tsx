@@ -14,9 +14,7 @@ export default function ContactPage() {
         title={
           <>
             Let&apos;s talk about{" "}
-            <span className="text-gradient-brand animate-gradient-x">
-              what&apos;s next.
-            </span>
+            <span className="text-gradient-brand">what&apos;s next.</span>
           </>
         }
         description="Tell us about the problem you're solving. We'll come back within one business day with thoughts — and either propose a path or point you somewhere better."
@@ -33,7 +31,7 @@ export default function ContactPage() {
                   e.preventDefault();
                   setSent(true);
                 }}
-                className="rounded-3xl border border-white/10 bg-ink-900/40 backdrop-blur p-6 sm:p-10 space-y-5"
+                className="rounded-3xl border border-white/10 bg-ink-900/60 p-6 sm:p-10 space-y-5"
               >
                 {sent ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center">
@@ -96,7 +94,7 @@ export default function ContactPage() {
               ].map((c) => (
                 <div
                   key={c.label}
-                  className="flex items-start gap-4 rounded-2xl border border-white/10 bg-ink-900/40 backdrop-blur p-6"
+                  className="flex items-start gap-4 rounded-2xl border border-white/10 bg-ink-900/60 p-6"
                 >
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-violet-400 text-ink-950">
                     <c.icon className="h-5 w-5" />

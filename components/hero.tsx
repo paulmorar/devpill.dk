@@ -26,15 +26,15 @@ const Line = ({
 export default function Hero() {
   return (
     <section className="relative min-h-[100svh] pt-32 sm:pt-40 pb-20">
-      {/* ambient blobs */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-20 -left-20 h-[480px] w-[480px] rounded-full bg-brand-500/20 blur-[120px] animate-aurora" />
+      {/* ambient blobs (desktop only — too expensive to paint on mobile) */}
+      <div className="pointer-events-none absolute inset-0 -z-10 hidden md:block">
+        <div className="absolute -top-20 -left-20 h-[480px] w-[480px] rounded-full bg-brand-500/20 blur-3xl animate-aurora" />
         <div
-          className="absolute top-1/3 right-0 h-[420px] w-[420px] rounded-full bg-violet-500/20 blur-[120px] animate-aurora"
+          className="absolute top-1/3 right-0 h-[420px] w-[420px] rounded-full bg-violet-500/20 blur-3xl"
           style={{ animationDelay: "-6s" }}
         />
       </div>
-      <div className="absolute inset-0 -z-10 grid-bg opacity-60" />
+      <div className="absolute inset-0 -z-10 grid-bg opacity-60 hidden sm:block" />
 
       <div className="container-wide">
         {/* Top meta row */}
@@ -45,7 +45,7 @@ export default function Hero() {
           className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-slate-400"
         >
           <span className="flex items-center gap-2">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
             Open for clients · 2026
           </span>
           <span className="hidden sm:inline">Copenhagen · Remote EU</span>
@@ -60,9 +60,7 @@ export default function Hero() {
               <span className="italic font-light text-slate-300">for</span>
             </Line>
             <Line delay={0.2}>
-              <span className="text-gradient-brand animate-gradient-x">
-                less.
-              </span>
+              <span className="text-gradient-brand">less.</span>
             </Line>
           </h1>
 

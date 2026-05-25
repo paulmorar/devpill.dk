@@ -33,9 +33,7 @@ export default function ServicesPage() {
         title={
           <>
             Engineering practices,{" "}
-            <span className="text-gradient-brand animate-gradient-x">
-              tailored to outcomes.
-            </span>
+            <span className="text-gradient-brand">tailored to outcomes.</span>
           </>
         }
         description="We organise our work around six practices. Most engagements blend two or three — always sized to your team and risk profile."

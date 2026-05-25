@@ -28,7 +28,7 @@ export default function Pilot({
           </h2>
         </div>
 
-        <div className="rounded-3xl border border-white/10 bg-ink-900/40 backdrop-blur p-8 sm:p-12 grid gap-10 lg:grid-cols-12">
+        <div className="rounded-3xl border border-white/10 bg-ink-900/60 p-8 sm:p-12 grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7 space-y-6">
             <p className="text-lg text-slate-300 max-w-prose">
               Because Devpill is newly registered, our first engagements are
